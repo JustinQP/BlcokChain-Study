@@ -60,6 +60,12 @@ Truffle是一个世界级的开发环境，测试框架，以太坊的资源管�
 
 
 
+### openzeppelin
+
+[OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts) 一个想要打造一个安全合约代码库的项目。很活跃，有很多合约示例代码。以太坊合约开发必备。
+
+
+
 ## 连接服务
 
 ### Metamask
@@ -77,6 +83,22 @@ MetaMask是一款在浏览器上使用的插件类型的以太坊钱包，该钱
 [Etherscan](https://etherscan.io) 是以太坊上应用最广泛的区块链浏览器，也提供 [API 服务](https://etherscan.io/apis)。 我们知道以太坊节点提供的API功能有限，尤其是需要一些多个区块相关的数据时，必须要依靠`Etherscan API`这样的服务。Etherscan API是社区提供的服务，仅支持每秒 5 个GET或POST请求，可以在这个地址 [API-Keys](https://etherscan.io/myapikey) 申请一个Key。(etherscan经常被墙，不知道什么时候能出来)
 
 [Etherscan API 中文](https://learnblockchain.cn/docs/etherscan/)  （2019/05）
+
+
+
+## 其他
+
+### 安全技术
+
+作为合约开发者。合约的安全至关重要。推荐几个设计智能合约安全类型的网站。
+
+[Paper 区块链专栏](https://paper.seebug.org/category/blockchain/)  一个专门介绍安全相关知识的技术型博客网站。
+
+[区块链安全网 - 白帽汇安全研究院](https://www.bcsec.org/)  专注区块链安全的网站。
+
+[安全客](https://www.anquanke.com/)   进去看看就知道了。有部分是介绍区块链安全的。
+
+[国家信息安全漏洞库](http://www.cnnvd.org.cn/index.html)  一看这名字。你懂的  -，-
 
 
 

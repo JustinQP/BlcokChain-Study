@@ -29,11 +29,17 @@ token代表数字资产，具有价值，但是并不是都符合特定的规范
 ### 序言
 
 EIP: 20 
+
 Title: ERC-20 Token Standard 
+
 Author: Fabian Vogelsteller fabian@ethereum.org, Vitalik Buterin vitalik.buterin@ethereum.org 
+
 Type: Standard 
+
 Category: ERC 
+
 Status: Accepted 
+
 Created: 2015-11-19
 
 
@@ -63,12 +69,89 @@ Token
 
 
 
-### Function:
+### ERC20必选函数
 
 注意：调用者必须处理返回false的returns (bool success).
 调用者绝对不能假设返回false的情况不存在。
 
+#### 1. totalSupply
 
+返回token的总供应量。
+
+```
+function totalSupply() constant returns (uint256 totalSupply)
+```
+
+
+
+#### 2. balanceOf
+
+返回地址是_owner的账户的账户余额。
+
+```
+function balanceOf(address _owner) constant returns (uint256 balance)
+```
+
+
+
+#### 3. transfer
+
+转移value的token数量到的地址to，并且必须触发Transfer事件。 
+
+如果_from帐户余额没有足够的令牌来支出，该函数应该被throw。_
+
+创建新令牌的令牌合同应该在创建令牌时将`_from`地址设置为0x0触发传输事件。
+
+```
+function transfer(address *to, uint256* value) returns (bool success)
+```
+
+**注意:**  0值的传输必须被视为正常传输并触发交易事件。
+
+
+
+#### 4. transferFrom
+
+从地址from发送数量为value的token到地址_to,必须触发Transfer事件。
+
+transferFrom方法用于提取工作流，允许合约代您转移token。
+
+这可以用于例如允许合约代您转让代币和/或以子货币收取费用。
+
+除了_from帐户已经通过某种机制故意地授权消息的发送者之外，该函数**应该**throw。
+
+```
+ function transferFrom(address from, address to, uint256 _value) returns (bool success)
+```
+
+**注意: ** 0值的传输必须被视为正常传输并触发传输事件。
+
+
+
+#### 5. approve
+
+允许spender多次取回您的帐户，最高达value金额。
+如果再次调用此函数，它将以_value覆盖当前的余量。
+
+```
+function approve(address spender, uint256 value) returns (bool success)
+```
+
+**注意：**为了阻止向量攻击，客户端需要确认以这样的方式创建用户接口，即将它们设置为0，然后将其设置为同一个花费者的另一个值。
+
+
+
+#### 6. allowance
+
+返回spender仍然被允许从owner提取的金额。
+
+```
+function allowance(address owner, address spender) constant returns (uint256 remaining)
+```
+
+
+
+### ERC20可选函数
 
 #### 1.  name
 
@@ -106,86 +189,9 @@ function decimals() constant returns (uint8 decimals)
 
 
 
-#### 4. totalSupply
+### ERC20事件
 
-返回token的总供应量。**必选**
-
-```
-function totalSupply() constant returns (uint256 totalSupply)
-```
-
-
-
-#### 5. balanceOf
-
-返回地址是_owner的账户的账户余额。**必选**
-
-```
-function balanceOf(address _owner) constant returns (uint256 balance)
-```
-
-
-
-#### 6. transfer
-
-转移value的token数量到的地址to，并且必须触发Transfer事件。**必选**
-
-如果_from帐户余额没有足够的令牌来支出，该函数应该被throw。_
-
-创建新令牌的令牌合同应该在创建令牌时将`_from`地址设置为0x0触发传输事件。
-
-```
-function transfer(address *to, uint256* value) returns (bool success)
-```
-
-**注意:**  0值的传输必须被视为正常传输并触发交易事件。
-
-
-
-#### 7. transferFrom
-
-从地址from发送数量为value的token到地址_to,必须触发Transfer事件。**必选**
-
-transferFrom方法用于提取工作流，允许合约代您转移token。
-
-这可以用于例如允许合约代您转让代币和/或以子货币收取费用。
-
-除了_from帐户已经通过某种机制故意地授权消息的发送者之外，该函数**应该**throw。
-
-```
- function transferFrom(address from, address to, uint256 _value) returns (bool success)
-```
-
-**注意: ** 0值的传输必须被视为正常传输并触发传输事件。
-
-
-
-#### 8. approve
-
-允许spender多次取回您的帐户，最高达value金额。**必选**
-如果再次调用此函数，它将以_value覆盖当前的余量。
-
-```
-function approve(address spender, uint256 value) returns (bool success)
-```
-
-**注意：**为了阻止向量攻击，客户端需要确认以这样的方式创建用户接口，即将它们设置为0，然后将其设置为同一个花费者的另一个值。
-
-
-
-#### 9. allowance
-
-返回spender仍然被允许从owner提取的金额。**必选**
-
-```
-function allowance(address owner, address spender) constant returns (uint256 remaining)
-```
-
-
-
-### Events:
-
-#### 10. Transfer
+#### 1. Transfer
 
 当token被转移(包括0值)，必须被触发。**必选**
 
@@ -195,7 +201,7 @@ event Transfer(address indexed from, address indexed to, uint256 _value)
 
 
 
-#### 11. Approval
+#### 2. Approval
 
 当任何成功调用approve(address *spender, uint256* value)后，必须被触发。**必选**
 

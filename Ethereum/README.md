@@ -94,7 +94,7 @@ MetaMask是一款在浏览器上使用的插件类型的以太坊钱包，该钱
 
 [Paper 区块链专栏](https://paper.seebug.org/category/blockchain/)  一个专门介绍安全相关知识的技术型博客网站。
 
-[区块链安全网 - 白帽汇安全研究院](https://www.bcsec.org/)  专注区块链安全的网站。
+[区块链安全信息平台 - 白帽汇安全研究院](https://www.bcsec.org/)  专注区块链安全的网站。
 
 [安全客](https://www.anquanke.com/)   进去看看就知道了。有部分是介绍区块链安全的。
 
@@ -102,7 +102,9 @@ MetaMask是一款在浏览器上使用的插件类型的以太坊钱包，该钱
 
 
 
+### 反编译
 
+[在线反编译网站](https://ethervm.io/decompile#func_profit)
 
 
 

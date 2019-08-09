@@ -17,3 +17,8 @@ ERC和EIP都有4个阶段:
 ![img](https://upload-images.jianshu.io/upload_images/14765382-83cb35609eb87f97?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp)
 
 所有的ERC都是EIP。反之则未必。
+
+### 资源
+
+[干货 | 以太坊代币标准的详细列表](https://ethfans.org/posts/ethereum-token-standards-list-1)
+
